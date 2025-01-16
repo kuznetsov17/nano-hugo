@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class = "index-spacer"></div>
+<section>
+  <div class="grid">
+    <div>
+      <h1>{{ .Title }}</h1>
+      {{ .Content }}
+    </div>
+    <div>
+      <div id = "index-image">
+        <img src="{{ site.Params.avatar }}" alt="avatar" class="avatar">
+      </div>
+    </div>
+  </div> 
+</section>
+{{ end }}
+

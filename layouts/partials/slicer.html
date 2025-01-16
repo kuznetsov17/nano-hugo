@@ -1,0 +1,18 @@
+
+{{ $skilsListR := .data }}
+{{ $step := .step }}
+{{ $RowNum := 1}}
+
+{{ $StartPos := 0}}
+{{ $current_window := first $step $skilsListR }}
+{{ $row := first $step $current_window }}
+{{ $rows :=  slice $row }}
+{{ range $i,$v := $skilsListR}}
+    {{ $current_window := $skilsListR | after (mul $step $RowNum) }}
+    {{ $row = first $step $current_window }}
+    {{ if gt (len $row) 0 }}
+        {{ $rows = $rows | append $row }}
+    {{ end }}
+    {{ $RowNum = add $RowNum 1}}
+{{ end }}
+{{return $rows}}

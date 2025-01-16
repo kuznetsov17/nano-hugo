@@ -1,0 +1,45 @@
+{{ define "main" }}
+  <div class="container">
+    <section>
+      <hgroup>
+        <h1>{{ .Title}}</h1>
+        {{ if .Description }}
+          <p>{{ .Description }}</p>
+        {{- end }}
+      </hgroup>
+      {{ if .Params.show_date }}
+      <h6>{{ .Date }}</h6>
+      {{ end }}
+      {{ with .GetTerms "tags" }}
+      <div class="post-tags">
+        <ul>
+          {{range . }} 
+            <li><a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>&nbsp;</li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </section>
+    <div class="mainContent">
+      {{ if .Params.show_toc }}
+      {{ .TableOfContents }}
+      {{ end }}
+      <hr>
+      {{ .Content }}
+    </div>
+    <hr>
+    <div class="grid">
+      <div class="left">{{ if .Next }}<a class="postnav" href="{{ .Next.RelPermalink }}">&larr; {{.Next.Title}}</a>{{ end }}</div>
+      <div class="right">{{ if .Prev }}<a class="postnav" href="{{ .Prev.RelPermalink }}">{{ .Prev.Title}} &rarr;</a>{{ end }}</div>
+    </div>
+  </div>
+  {{ if .Params.show_shares }}
+  {{ partial "partials/shares.html" }}
+  {{ end }}
+  {{ if .Params.show_comments }}
+    <div class="center" id="giscusWidget"></div>
+  {{ end }}
+  
+{{ end }}
+
+

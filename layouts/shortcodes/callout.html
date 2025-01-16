@@ -1,0 +1,13 @@
+
+{{ $type := .Get "type" }}
+{{ $pth := printf "images/callouts/%s.svg" $type | printf "%s" }}
+<div class="co-container">
+    <div class="callout {{ $type }}">
+        {{ with resources.Get $pth }}
+            <span class="co-img">{{ .Content | safeHTML }}</span>
+        {{ end }}
+        <span class="co-body">
+            {{ .Inner }}
+        </span>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<div class="badges center">
+    {{ if strings.ContainsNonSpace .Inner }}
+        <p>{{ .Inner | markdownify }}</p>
+    {{ end }}
+</div>

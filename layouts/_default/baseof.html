@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head
+  data-base-url="{{site.BaseURL}}"
+  data-giscus-repo="{{site.Params.giscus.data_repo }}"
+  data-giscus-repo-id="{{site.Params.giscus.data_repo_id }}"
+  data-giscus-category="{{site.Params.giscus.data_category }}"
+  data-giscus-category-id="{{site.Params.giscus.data_category_id }}"
+  data-giscus-mapping="{{site.Params.giscus.data_mapping }}"
+  data-giscus-strict="{{site.Params.giscus.data_strict }}"
+  data-giscus-reactions-enabled="{{site.Params.giscus.data_reactions_enabled }}"
+  data-giscus-emit-metadata="{{site.Params.giscus.data_emit_metadata }}"
+  data-giscus-input-position="{{site.Params.giscus.data_input_position }}"
+  data-giscus-lang="{{site.Params.giscus.data_lang }}"
+  data-giscus-crossorigin="{{site.Params.giscus.crossorigin }}"
+  data-giscus-nonce="{{site.Params.js.nonce }}"
+  data-giscus-src="{{site.Params.giscus.src }}"
+  data-build-search-index="{{site.Params.enable_search }}"
+  data-comments-enabled="{{ if .Params.show_comments }}{{ .Params.show_comments }}{{ else }} false {{ end }}"
+>
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title> 
+{{ partial "head.html" . }}
+</head>
+<body>
+  <header>
+    {{ partial "header.html" . }}
+  </header>
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer>
+    {{ partial "footer.html" . }}
+  </footer>
+</body>
+</html>

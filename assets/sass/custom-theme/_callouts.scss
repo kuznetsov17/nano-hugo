@@ -1,0 +1,61 @@
+@import "../colors";
+
+.co-container {
+    margin: 0 auto;
+    position: relative;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    .callout {
+        a:hover {
+            // color: var(--hover-color);
+        }
+        // background-color: var(--code-bg-color);
+        width: 80%;
+        margin: 0 auto;
+        position: relative;
+        padding: .6em;
+        .co-body {
+            line-height: 1.5em;
+            font-size: 1em;
+        }
+        .co-img {
+            float: left;
+            text-align: right;
+            padding-right: 1em;
+            height: 1em;
+            vertical-align: middle;
+            display: inline-block;
+            svg {
+                height: 1.3em;
+                width: 1.3em;
+                vertical-align: middle;
+                display: inline-block;
+            }
+        }
+        &.warning {
+            border: 1px solid $amber-200;
+            border-left: 8px solid $amber-200;
+            svg {
+                path {
+                    fill: $amber-200;
+                }
+            }
+        }
+        &.alert {
+            border: 1px solid $red-450;
+            border-left: 8px solid $red-450;
+            svg { 
+                path {
+                fill: $red-450
+                }
+            }
+        }
+        &.info {
+            border: 1px solid $azure-400;
+            border-left: 8px solid $azure-400;
+            svg {
+                fill: $azure-400
+            }
+        }
+    }
+}

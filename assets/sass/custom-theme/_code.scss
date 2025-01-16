@@ -1,0 +1,61 @@
+pre {
+    border-radius: .5em;
+    position: relative;
+    // background: var(--code-bg-color);
+    padding: 1.5em;
+    .copybutton {
+      outline: none;
+      // padding: .4em;
+      // position: absolute;
+      // margin: .6em;
+      right: 0;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      &.icon-copy {    
+          mask-size: 20px;
+          mask-repeat: no-repeat;
+      }
+    }
+    code, span {
+      font-family: monospace;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    span .z-key span {
+      color: var(--code-kw-color);
+      font-weight: bold;
+    }
+    .copybutton {
+        outline: none;
+        padding: .4em;
+        position: absolute;
+        margin: .5em;
+        right: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        &.icon-copy {    
+            mask-size: 20px;
+            mask-repeat: no-repeat;
+        }
+
+    }
+    mark {
+        display: block;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        td {
+            padding: 0;
+        }
+    }
+}
+
+.icon-copy {
+  mask: url('../icons/copy.svg');
+  &.clicked {
+      mask: url('../icons/copy-check.svg');
+  }
+}

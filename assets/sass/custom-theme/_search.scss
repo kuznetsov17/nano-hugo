@@ -1,0 +1,12 @@
+#sResults {
+    position: relative;
+    left: 25%;
+    padding: 1em;
+    border-radius: 1%;
+    background-color: var(--pico-background-color);
+    z-index: 999;
+    max-width: fit-content;
+    max-height: fit-content;
+    border: 2px solid var(--pico-secondary-background);
+    display: none;
+}

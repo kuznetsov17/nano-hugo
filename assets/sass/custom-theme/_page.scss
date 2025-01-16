@@ -1,0 +1,25 @@
+
+.post-tags {
+    ul {
+        padding: 0;
+        li {
+            list-style: none;
+            display: inline-block;
+        }
+    }
+}
+
+.toc {
+    ul li {
+        list-style: none;
+    }
+}
+
+.badges {
+    padding: 1em;
+    background-color: var(--code-bg-color);
+    img {
+        width: 6em;
+        height: 6em;
+    }
+}

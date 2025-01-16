@@ -1,0 +1,23 @@
+{{ $skilsListR := site.Data.skills}}
+{{ $rows := partial "slicer.html" (dict "data" $skilsListR "step" 2) }}
+
+<div class="grid" id="skillcards">
+    {{- range $row, $RowVal := $rows }}
+    <div>
+        {{- range $item := $RowVal }}
+        <article class="panel">
+            <div class="skillcard-icon skillcard-icon-{{.icon}}"></div>
+            <header><h6 class="center">{{- .title }}</h6></header>
+            <ul>
+                {{- range .skills }}
+                    <li>{{- . }}</li>
+                {{- end }}
+            </ul>
+        </article>
+        {{- end }}
+    
+    </div>
+    {{- end }}
+</div>
+
+

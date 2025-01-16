@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{ $tagTitle:= .Title | strings.ToLower}}
+{{ $pages := index site.Taxonomies.tags $tagTitle }}
+{{ $paginator := .Paginate $pages }}
+<div class="row" id="section-content">
+  <div class="col-8">
+    <h1 class="center">{{ .Title }}</h1>
+    <ul>
+      {{ range $paginator.Pages }}
+      <li>
+        <hgroup>
+          <h5>
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            </h5>
+          {{ if .Description }}
+            <p class="invis">{{ .Description }}</p>
+          {{ end }}
+          <p class="small invis">{{  .PublishDate | time.Format "2 Jan 2006" }} &#x25F4; {{ .ReadingTime }} min read</p>
+        </hgroup>
+      </li>
+      {{ end }}
+    </ul>
+    {{ template "partials/pagination.html" . }}
+  </div>
+   <div id="right" class="col-2">
+    <h4>Tags:</h4>
+    <ul>
+      {{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $cnt := .Count }}
+        {{ with $.Site.GetPage (printf "/tags/%s" $name) }} 
+          <li><a href="{{.RelPermalink }}">{{ $name }}</a> ({{$cnt}})</li>
+        {{ end }} 
+      {{ end }}
+    </ul>
+  </div>
+</div>
+{{ end }}
