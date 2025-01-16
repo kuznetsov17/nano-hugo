@@ -24,8 +24,8 @@ function giscusRender(theme) {
     if (document.head.dataset['commentsEnabled'] == 'true'){  
         baseUrl = document.head.dataset['baseUrl'];
         themes = {
-            "dark": `${baseUrl}css/gs_dark.css`,
-            "light":`${baseUrl}css/gs_light.css`
+            "dark": `${baseUrl}css/gs-dark.css`,
+            "light":`${baseUrl}css/gs-light.css`
         }
         giscus = document.getElementById('giscusScript');
         if (giscus){

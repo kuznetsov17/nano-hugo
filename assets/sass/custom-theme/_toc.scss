@@ -16,14 +16,19 @@
 nav#TableOfContents {
     padding-top: .5em;
 }
-#toc{
+#toc{  
     summary {
         border-radius: 5px;
         display: flex;
         font-weight: bold;
         font-size: 110%; 
+        list-style-type: none;
+        list-style: none;        
     }
-      
+    
+    summary::-webkit-details-marker {
+        display: none;
+    }
     summary::after {
         content: '';
         width: 18px;
