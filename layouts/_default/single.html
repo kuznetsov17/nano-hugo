@@ -38,13 +38,14 @@
       <div class="left">{{ if .Next }}<a class="postnav" href="{{ .Next.RelPermalink }}">&larr; {{.Next.Title}}</a>{{ end }}</div>
       <div class="right">{{ if .Prev }}<a class="postnav" href="{{ .Prev.RelPermalink }}">{{ .Prev.Title}} &rarr;</a>{{ end }}</div>
     </div>
+    {{ if .Params.show_shares }}
+    {{ partial "partials/shares.html" }}
+    {{ end }}
+    {{ if .Params.show_comments }}
+      {{ partial "comments.html" }}
+    {{ end }}
   </div>
-  {{ if .Params.show_shares }}
-  {{ partial "partials/shares.html" }}
-  {{ end }}
-  {{ if .Params.show_comments }}
-    <div class="center" id="giscusWidget"></div>
-  {{ end }}
+  
 {{ end }}
 
 
