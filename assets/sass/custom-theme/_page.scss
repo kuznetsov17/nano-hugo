@@ -23,3 +23,14 @@
         height: 6em;
     }
 }
+
+.mainContent {
+    p {
+        code {
+            background-color: var(--pico-mark-background-color);
+            padding: .3em;
+            border-radius: .3em;
+            font-weight: bold;
+        }
+    }
+}
