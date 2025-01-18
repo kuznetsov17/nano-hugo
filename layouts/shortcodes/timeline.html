@@ -1,14 +1,13 @@
 {{ $dt := site.Data.timeline}}
-<div class="history-tl-container">
-  <ul class="tl">
-    {{- range $dt }}
-    <li class="tl-item">
-      <div class="timestamp">
-        {{ .date }}
-      </div>
-      <div class="item-title">{{ .title | markdownify }}</div>
-      <div class="item-detail">{{ .body }}</div>
+<div>
+  <ul class="timeline">
+    {{ range $dt }}
+    <li>
+      <p class="tl-date">{{ .date }}</p>
+      <h6>{{ .title | markdownify}}</h6>
+      <p class="tl-body">{{ .body | markdownify }}</p>
     </li>
-  {{- end }}
+    {{- end }}
   </ul>
 </div>
+

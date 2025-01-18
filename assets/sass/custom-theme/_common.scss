@@ -111,8 +111,16 @@ footer {
   }
 }
 
+
 #TagsCol {
   // width: 200px; 
   max-height: 30em; 
   overflow-y: scroll;
+}
+
+@media only screen and (max-width: 768px) {
+  #TagsOuter {
+    display: none;
+
+  }
 }

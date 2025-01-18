@@ -1,8 +1,8 @@
 {{ define "main" }}
 {{ $pages := where site.RegularPages "Section" .Section }}
 {{ $paginator := .Paginate $pages }}
-<div class="row" id="section-content">
-  <div class="col-8">
+<div class="grid" id="section-content">
+  <div>
     <h1 class="center">{{ .Title }}</h1>
     <ul>
       {{ range $paginator.Pages }}
@@ -21,17 +21,15 @@
     </ul>
     {{ template "partials/pagination.html" . }}
   </div>
-  <div id="TagsOuter" class="col-2">
+   <div class="right" id ="TagsOuter">
     <h4>Tags:</h4>
-    <div id="TagsCol">
-      <ul>
-        {{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $cnt := .Count }}
-          {{ with $.Site.GetPage (printf "/tags/%s" $name) }} 
-            <li><a href="{{.RelPermalink }}">{{ $name }}</a> ({{$cnt}})</li>
-          {{ end }} 
-        {{ end }}
-      </ul>
-    </div>
+    <ul>
+      {{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $cnt := .Count }}
+        {{ with $.Site.GetPage (printf "/tags/%s" $name) }} 
+          <li><a href="{{.RelPermalink }}">{{ $name }}</a> ({{$cnt}})</li>
+        {{ end }} 
+      {{ end }}
+    </ul>
   </div>
 </div>
 {{ end }}

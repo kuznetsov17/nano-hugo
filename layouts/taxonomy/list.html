@@ -22,17 +22,15 @@
     </ul>
     {{ template "partials/pagination.html" . }}
   </div>
-  <div id="TagsOuter" class="col-2">
+  <div class="right" id ="TagsOuter">
     <h4>Tags:</h4>
-    <div id="TagsCol">
-      <ul>
-        {{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $cnt := .Count }}
-          {{ with $.Site.GetPage (printf "/tags/%s" $name) }} 
-            <li><a href="{{.RelPermalink }}">{{ $name }}</a> ({{$cnt}})</li>
-          {{ end }} 
-        {{ end }}
-      </ul>
-    </div>
+    <ul>
+      {{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $cnt := .Count }}
+        {{ with $.Site.GetPage (printf "/tags/%s" $name) }} 
+          <li><a href="{{.RelPermalink }}">{{ $name }}</a> ({{$cnt}})</li>
+        {{ end }} 
+      {{ end }}
+    </ul>
   </div>
 </div>
 {{ end }}
