@@ -1,0 +1,33 @@
+
+
+    {{ if eq .Kind "section" }}
+        {{ .Store.Set "paginator" (.Paginate (where site.RegularPages "Section" .Section)) }}
+    {{ else if eq .Kind "term" }}
+        {{ $tagTitle:= .Title | strings.ToLower}}
+        {{ .Store.Set "paginator" (.Paginate (index site.Taxonomies.tags $tagTitle)) }}
+    {{ end }}
+{{ $paginator := .Store.Get "paginator" }}
+<div class="grid" id="section-content">
+  <div>
+    <h1 class="center">{{ .Title }}</h1>
+    <ul>
+      {{ range $paginator.Pages }}
+      <li>
+        <hgroup>
+          <h5>
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            </h5>
+          {{ if .Description }}
+            <p class="invis">{{ .Description }}</p>
+          {{ end }}
+          <p class="small invis">{{  .PublishDate | time.Format "2 Jan 2006" }} &#x25F4; {{ .ReadingTime }} min read</p>
+        </hgroup>
+      </li>
+      {{ end }}
+    </ul>
+    {{ partial "partials/pagination.html" . }}
+  </div>
+   <div class="right" id ="TagsOuter">
+    {{ partial "partials/tagcolumn.html" . }}
+  </div>
+</div>
