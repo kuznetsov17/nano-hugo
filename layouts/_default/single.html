@@ -45,7 +45,13 @@
       {{ partial "comments.html" }}
     {{ end }}
   </div>
-  
+  {{ if $.Params.mermaid }}
+  {{- range resources.Match "js/mermaid/*.js" }}
+    {{- with . | minify | fingerprint "sha512"}}
+  <script async src="{{ .RelPermalink }}" data-website-id="{{site.Params.stats.site_id}}" nonce="{{site.Params.js.nonce}}" integrity="{{ .Data.Integrity }}"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
 {{ end }}
 
 
