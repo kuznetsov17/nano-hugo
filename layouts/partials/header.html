@@ -2,13 +2,12 @@
     <nav>
         <ul>
             {{- if site.Params.enable_search }}
-            <li><input
-                    id="searchInput"  
-                    type="search"
-                    name="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                />
+            <li>
+                <div id="fastSearch">
+                    <input type ="search" id="searchInput" tabindex="0">
+                </div>
+                <div id="searchResults">
+                </div>
             </li>
         {{- end }}
         {{ range site.Params.top_menu }}
@@ -35,11 +34,7 @@
             </li>
         </ul>
     </nav>
-    
 </div>
 {{- if site.Params.enable_search }}
 
-<div id="sResults">
-    <a class="icon close-search" id="closeSearch"></a>
-</div>
 {{- end }}
