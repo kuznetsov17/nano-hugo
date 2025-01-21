@@ -1,0 +1,8 @@
+{{ $cdn_version := time.Now.Unix }}
+{{- if site.Params.enable_search }}
+  {{- range resources.Match "js/search/*.js" }}
+    {{- with . | minify |fingerprint "sha512"}}
+    <script src="{{ .RelPermalink }}" nonce="{{site.Params.js.nonce}}" integrity="{{ .Data.Integrity }}"></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
