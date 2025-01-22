@@ -411,6 +411,30 @@ $color-mappings: (
       "switch-thumb-box-shadow": 0 0 0 rgba(0, 0, 0, 0),
     ),
   ),
+  "vk": (
+    "dark": (
+      "text-selection-color": rgba($red-150, 0.1875),
+      "primary": #B0B9BB,
+      "primary-background": #3B413C,
+      "primary-underline": #296688,//rgba($blue-350, 0.5),
+      "primary-hover": #77B2D5,
+      "primary-hover-background": #77B2D5,
+      "primary-focus": #424242,//rgba($slate-350, 0.375),
+      "primary-inverse": #ECDFCC,
+      "switch-thumb-box-shadow": 0 0 0 rgba(0, 0, 0, 0),
+    ),
+    "light": (
+      "text-selection-color": rgba($slate-400, 0.25),
+      "primary": #3b4c51,
+      "primary-background": blue,
+      "primary-underline": #C5283D,
+      "primary-hover": #C5283D,
+      "primary-hover-background": #C5283D,
+      "primary-focus": #C5283D,
+      "primary-inverse": blue,
+      "switch-thumb-box-shadow": 0 0 0 rgba(0, 0, 0, 0),
+    ),
+  ),
   "violet": (
     "dark": (
       "text-selection-color": rgba($violet-350, 0.1875),

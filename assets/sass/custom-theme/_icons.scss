@@ -71,7 +71,7 @@
       height: 1.5em;
       width: 1.5em;
       :hover {
-        fill: var(--pico-contrast);
+        fill: var(--pico-primary-hover);
       } 
     }
 }
@@ -85,7 +85,7 @@
   }
   .icon:hover,
   .icon:focus {
-    background: var(--pico-contrast);
+    background: var(--pico-primary-hover);
   }
   .icon-time:hover, 
   .icon-search:hover,
