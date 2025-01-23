@@ -10,11 +10,11 @@
                 </div>
             </li>
         {{- end }}
+        {{ $page := .}}
         {{ range site.Params.top_menu }}
-            {{ $current := . }}
             <li><a 
-                href="{{$current.link}}"  {{ if and ($.Path | strings.Contains $current.link) (not $.IsHome)}} class = "contrast"{{end}} {{ if and (eq $current.title site.Params.index_page) ( $.IsHome) }}
-                class= "contrast"{{end}}>{{$current.title}}</a></li>
+                href="{{.link}}"  {{ if and (strings.Contains $page.Path .link) (ne .link "/" ) }} class = "contrast"{{end}} {{ if and (eq .title site.Params.index_page) ( $page.IsHome) }}
+                class= "contrast"{{end}}>{{.title}}</a></li>
         {{ end }}
             <li>
                 <div class="theme-toggle" title="Toggle theme" id="colorSwitch">
@@ -35,6 +35,3 @@
         </ul>
     </nav>
 </div>
-{{- if site.Params.enable_search }}
-
-{{- end }}
