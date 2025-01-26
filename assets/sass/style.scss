@@ -24,33 +24,7 @@
 // @use "colors" as *;
 @use "custom-theme";
 
-[data-theme=light],
-:root:not([data-theme=dark]) {
-    --pico-color: #292F36;
-    --pico-contrast: var(--pico-primary-hover);
-    --pico-header-color: #0d0f0f;
-    --pico-background-color: #F7FFF7;
-    --pico-h1-color: var(--pico-header-color);
-    --pico-h2-color: var(--pico-header-color);
-    --pico-h3-color: var(--pico-header-color);
-    --pico-h4-color: var(--pico-header-color);
-    --pico-h5-color: var(--pico-header-color);
-    --pico-h6-color: var(--pico-header-color);
-}
-[data-theme=dark],
-:root:not([data-theme=light]) {
-    --pico-color: #77878B;
-    --pico-contrast: var(--pico-primary-hover);
-    --pico-header-color: #afc9cf;
-    --pico-background-color: #1C1C1C;
-    --pico-h1-color: var(--pico-header-color);
-    --pico-h2-color: var(--pico-header-color);
-    --pico-h3-color: var(--pico-header-color);
-    --pico-h4-color: var(--pico-header-color);
-    --pico-h5-color: var(--pico-header-color);
-    --pico-h6-color: var(--pico-header-color);
-    
-}
+
 header {
     height: 5em;
     nav {

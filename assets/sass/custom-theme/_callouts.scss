@@ -9,7 +9,6 @@
         a:hover {
             // color: var(--hover-color);
         }
-        // background-color: var(--code-bg-color);
         width: 80%;
         margin: 0 auto;
         position: relative;
@@ -35,6 +34,7 @@
         &.warning {
             border: 1px solid $amber-200;
             border-left: 8px solid $amber-200;
+            background-color: $amber-50;
             svg {
                 path {
                     fill: $amber-200;
@@ -44,6 +44,7 @@
         &.alert {
             border: 1px solid $red-450;
             border-left: 8px solid $red-450;
+            background-color: $red-50;
             svg { 
                 path {
                 fill: $red-450
@@ -53,6 +54,7 @@
         &.info {
             border: 1px solid $azure-400;
             border-left: 8px solid $azure-400;
+            background-color: $azure-50;
             svg {
                 fill: $azure-400
             }

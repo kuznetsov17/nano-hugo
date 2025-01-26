@@ -107,8 +107,7 @@ function setCodeCss(targetColorTheme) {
     var code_css = document.createElement("link");
     code_css.rel = "stylesheet";
     code_css.type = "text/css";
-    code_css.href = `/css/dynamic/monokai-${targetColorTheme}.css`;
+    code_css.href = `/css/dynamic/code-${targetColorTheme}.css`;
     document.getElementsByTagName("head")[0].appendChild(code_css)
+    document.querySelectorAll("link[rel=stylesheet]").forEach(link => link.href = link.href.replace(/\?.*|$/, "?" + Date.now()))
 }
-
-
