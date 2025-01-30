@@ -31,5 +31,12 @@
   <footer>
     {{ partial "footer.html" . }}
   </footer>
+{{ if .Store.Get "hasMermaid" }}
+{{ range resources.Match "js/mermaid/*.js" }}
+  {{- with . | minify | fingerprint "sha512"}}
+<script type="module" src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+  {{- end }}
+{{- end }}
+{{ end }}
 </body>
 </html>

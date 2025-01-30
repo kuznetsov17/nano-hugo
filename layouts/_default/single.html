@@ -39,19 +39,12 @@
       <div class="right">{{ if .Prev }}<a class="postnav" href="{{ .Prev.RelPermalink }}">{{ .Prev.Title}} &rarr;</a>{{ end }}</div>
     </div>
     {{ if .Params.show_shares }}
-    {{ partial "partials/shares.html" }}
+    {{ partial "partials/shares.html" . }}
     {{ end }}
     {{ if .Params.show_comments }}
-      {{ partial "comments.html" }}
+      {{ partial "comments.html" . }}
     {{ end }}
   </div>
-  {{ if $.Params.mermaid }}
-  {{- range resources.Match "js/mermaid/*.js" }}
-    {{- with . | minify | fingerprint "sha512"}}
-  <script async src="{{ .RelPermalink }}" data-website-id="{{site.Params.stats.site_id}}" nonce="{{site.Params.js.nonce}}" integrity="{{ .Data.Integrity }}"></script>
-    {{- end }}
-  {{- end }}
-{{- end }}
 {{ end }}
 
 

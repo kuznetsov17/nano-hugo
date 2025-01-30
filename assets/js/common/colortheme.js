@@ -1,4 +1,4 @@
-function mermaidRender(theme) {
+function mermaidRender(theme) {    
     if ( theme == 'dark' ) {
         initOptions = {  
             startOnLoad: false, 
@@ -8,13 +8,9 @@ function mermaidRender(theme) {
     else {
         initOptions = {  
             startOnLoad: false,
-            theme: 'neutral' 
+            theme: 'light' 
             }   
     }
-    // for (let i = 0; i < mmdElements.length; i++) {
-    //     delete mmdElements[i].dataset.processed;
-    //     mmdElements[i].innerHTML = mmdHTML[i];
-    // }
     if (typeof mermaid !== 'undefined') {
         mermaid.initialize(initOptions);
         mermaid.run();
@@ -68,7 +64,6 @@ function setStartTheme(){
     }
     document.documentElement.setAttribute('data-theme', targetColorTheme);
     document.getElementById("colorSwitch").addEventListener("click", switchTheme);
-    
     switchToggle(targetColorTheme)
     localStorage.setItem('color-theme',targetColorTheme);
     giscusRender(targetColorTheme);
@@ -98,8 +93,7 @@ function switchTheme() {
     localStorage.setItem('color-theme',targetColorTheme);
     setCodeCss(targetColorTheme)
     giscusRender(targetColorTheme)
-    mermaidRender(targetColorTheme)
-    
+    document.dispatchEvent(evtSwitch)
     
 }
 

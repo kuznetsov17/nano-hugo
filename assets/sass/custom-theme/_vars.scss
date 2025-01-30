@@ -19,10 +19,11 @@
 }
 [data-theme=dark],
 :root:not([data-theme=light]) {
-    --pico-color: #6a797d;
+    --pico-color: #819499;
     --pico-contrast: var(--pico-primary-hover);
     --pico-header-color: #92a6aa;
-    --pico-background-color: #1C1C1C;
+    --pico-background-color: #212121;
+    // --pico-background-color: #1C1C1C;
     --pico-h1-color: var(--pico-header-color);
     --pico-h2-color: var(--pico-header-color);
     --pico-h3-color: var(--pico-header-color);
