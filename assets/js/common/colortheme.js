@@ -1,21 +1,3 @@
-function mermaidRender(theme) {    
-    if ( theme == 'dark' ) {
-        initOptions = {  
-            startOnLoad: false, 
-            theme: 'dark'
-        } 
-    } 
-    else {
-        initOptions = {  
-            startOnLoad: false,
-            theme: 'light' 
-            }   
-    }
-    if (typeof mermaid !== 'undefined') {
-        mermaid.initialize(initOptions);
-        mermaid.run();
-    }
-}
 function giscusRender(theme) {
     if (document.head.dataset['commentsEnabled'] == 'true'){  
         baseUrl = document.head.dataset['baseUrl'];
@@ -49,7 +31,6 @@ function giscusRender(theme) {
 }
 
 function setStartTheme(){
-    let targetColorTheme = '';
     let currentTheme = localStorage.getItem('color-theme');
     if (currentTheme != null) {
         targetColorTheme = currentTheme
@@ -68,7 +49,6 @@ function setStartTheme(){
     localStorage.setItem('color-theme',targetColorTheme);
     giscusRender(targetColorTheme);
     setCodeCss(targetColorTheme)
-    mermaidRender(targetColorTheme);
 }
 function switchToggle(targetColorTheme) {
     if (targetColorTheme == 'dark') {
@@ -103,5 +83,4 @@ function setCodeCss(targetColorTheme) {
     code_css.type = "text/css";
     code_css.href = `/css/dynamic/code-${targetColorTheme}.css`;
     document.getElementsByTagName("head")[0].appendChild(code_css)
-    document.querySelectorAll("link[rel=stylesheet]").forEach(link => link.href = link.href.replace(/\?.*|$/, "?" + Date.now()))
 }

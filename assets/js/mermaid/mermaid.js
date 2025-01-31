@@ -8,8 +8,5 @@ import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.m
       mermaid.initialize(mermaidConfig);
       mermaid.run()
     document.addEventListener("themeSwitch", function(event){
-      mermaidSwitch()
-    });
-    function mermaidSwitch(){
       window.location.reload();
-    }
+    });

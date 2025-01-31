@@ -22,15 +22,15 @@
       {{ end }}
     </section>
     <div class="mainContent">
+      {{ if .Params.show_toc }}
       <div id="toc">
-        {{ if .Params.show_toc }}
         <details>
           <summary>Table of contents</summary>
           {{ .TableOfContents }}
         </details>
-        {{ end }}
       </div>
       <hr>
+      {{ end }}
       {{ .Content }}
     </div>
     <hr>
