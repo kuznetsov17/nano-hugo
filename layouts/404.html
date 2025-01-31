@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <div class="container">
+    <div class="mainContent">
+      <h1 class="center">Ooops! 404</h1>
+      <p>Looks like that something that you are looking is not here...</p>
+      <p>You may start from <a href="/">beginning</a> or <a href="/notes">notes</a></p>
+    </div>
+  </div>
+  {{ .Page.Store.Set "noFooter" true }}
+{{ end }}
+
+

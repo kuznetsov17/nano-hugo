@@ -1,3 +1,4 @@
+{{- if not ( eq (.Store.Get "noFooter") true)  }}
 <ul class="center">
     <li><small>Сreated by Vitaliy Kuznetsov in 2015 – {{time.Now | time.Format "2006"}} for fun. Powered by <a href="https://gohugo.io/">hugo</a> and <a href="https://github.com/kuznetsov17/nano-hugo">nano</a>.</small>
     {{- if site.Params.social.github }}
@@ -7,6 +8,6 @@
     <li><a href="{{site.Params.social.linkedin}}" class="icon footer icon-linkedin" aria-label="linkedin"></a>
     {{ end }}
 </ul>
-
+{{- end }}
 
 {{ partial "footer/footer_js.html" .}}
