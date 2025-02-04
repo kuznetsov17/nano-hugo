@@ -29,7 +29,7 @@
   p, li {
     line-height: 1.2rem;
     font-size: 90%;
-    // font-family: Helvetica, Arial, sans-serif;
+    
     font-family: "Roboto";
     font-weight: var(--pico-font-weight);
   }
@@ -45,7 +45,7 @@
       padding-bottom: .5em;
       padding-left: .8em;
       padding-right: .8em;
-      // border-bottom: .2em solid var(--pico-primary);
+      
       text-decoration: none;
       margin: .5em;
   }
@@ -55,7 +55,7 @@
   }
   a.current {
     border-bottom: .2em solid var(--pico-primary);
-      // background-color: var(--pico-secondary-background);
+      
   }
 }
 .row:after {
@@ -121,6 +121,28 @@ footer {
 @media only screen and (max-width: 768px) {
   #TagsOuter {
     display: none;
+  }
+}
+.row {
+  display: flex;
+}
+.column {
+  float: left;
+}
 
+.col-left {
+  width: 80%;
+}
+
+.col-right {
+  width: 20%;
+}
+
+@media only screen and (max-width: 768px) {
+  .col-left {
+    width: 100%;
+  }
+  .col-right {
+    display: none;
   }
 }
