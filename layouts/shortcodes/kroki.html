@@ -1,0 +1,35 @@
+{{- $type := .Get "type" | lower }}
+{{- $id := .Ordinal }}
+{{ $path := .Page.PageWithoutContent.Path }}
+{{- $body := .Inner }}
+{{ range slice "dark" "default" }}
+  {{ $mode := . }}
+  {{- $dopts := dict 
+    "theme" $mode }}
+  {{ $body := dict 
+    "diagram_source" $body
+    "diagram_type" "mermaid"
+    "diagram_options" $dopts
+    "output_format" "svg" |jsonify }}
+  {{ $req := dict
+    "method" "post"
+    "body" $body
+    "headers" (dict "Content-Type" "text/plain")
+    "key" (printf "%s%s" $id $mode)
+  }}
+  {{ $url := site.Params.kroki.endpoint }}
+  {{ $out := resources.GetRemote $url $req | safeHTML}}
+  {{ with try (resources.GetRemote $url $req) }}
+    {{ with .Err }}
+      {{ warnf "%s" . }}
+    {{ else with .Value | fingerprint "sha256"}}
+    {{ $uniq := replace (substr .Data.Integrity 10 20) "=" "" }}
+    {{ $img := .Content | resources.FromString (printf "images/%s.svg" $uniq) }}
+    <div class="kroki kroki-{{$mode}}">
+      <img src="{{ $img.RelPermalink }}">
+    </div>
+    {{ else }}
+      {{ warnf "Unable to get remote resource %q" $url }}
+    {{ end }}
+  {{ end }}
+{{ end }}

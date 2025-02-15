@@ -7,7 +7,7 @@
             <span class="co-img">{{ .Content | safeHTML }}</span>
         {{ end }}
         <span class="co-body">
-            {{ .Inner }}
+            {{ .Inner | markdownify}}
         </span>
     </div>
 </div>
