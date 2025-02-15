@@ -1,25 +1,14 @@
 name: Nano
 license: MIT
 licenselink: https://github.com/kuznetsov17/nano-hugo/LICENSE
-description: Theme description
+description: Minimalistic theme with some features.
 homepage: https://github.com/kuznetsov17/nano-hugo
 demosite: https://viku.me/
-tags:
-  - blog
-  - company
 features:
-  - some
-  - awesome
-  - features
-authors:
-  - name: Name of author
-    homepage: Website of author
-  - name: Name of author
-    homepage: Website of author
+  - lightweight
+  - dark and light mode
+  - comments  
+  - shortcodes
 author:
-  name: Your name
-  homepage: Your website
-original:
-  author: Name of original author
-  homepage: Website of original author
-  repo: https://github.com/owner/repo
+  name: Vitaliy Kuznetsov
+  homepage: https://viku.me/

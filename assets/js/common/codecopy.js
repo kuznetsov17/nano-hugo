@@ -1,5 +1,5 @@
 function enableCopy() {
-    document.querySelectorAll('pre:not(.mermaid)').forEach(node => {
+    document.querySelectorAll('pre:not(.kroki)').forEach(node => {
       let copyBtn = document.createElement("span");
       copyBtn.classList.add('copybutton');
       copyBtn.classList.add('icon');

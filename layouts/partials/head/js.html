@@ -7,6 +7,5 @@
 
 {{- if ne hugo.Environment "development" }}
   <script async src="{{site.Params.stats.script_src}}" data-website-id="{{site.Params.stats.site_id}}" nonce="{{site.Params.js.nonce}}"></script>
-  <script data-goatcounter="https://viku.goatcounter.com/count" async src="//gc.zgo.at/count.js" nonce="{{site.Params.js.nonce}}"></script>
 {{- end }}
 

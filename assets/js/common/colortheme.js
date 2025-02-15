@@ -49,6 +49,7 @@ function setStartTheme(){
     localStorage.setItem('color-theme',targetColorTheme);
     giscusRender(targetColorTheme);
     setCodeCss(targetColorTheme)
+    switchKroki(targetColorTheme)
 }
 function switchToggle(targetColorTheme) {
     if (targetColorTheme == 'dark') {
@@ -73,6 +74,7 @@ function switchTheme() {
     localStorage.setItem('color-theme',targetColorTheme);
     setCodeCss(targetColorTheme)
     giscusRender(targetColorTheme)
+    switchKroki(targetColorTheme)
     document.dispatchEvent(evtSwitch)
     
 }
@@ -83,4 +85,23 @@ function setCodeCss(targetColorTheme) {
     code_css.type = "text/css";
     code_css.href = `/css/dynamic/code-${targetColorTheme}.css`;
     document.getElementsByTagName("head")[0].appendChild(code_css)
+}
+
+function switchKroki(targetColorTheme){
+    if (targetColorTheme == "light"){
+        currentTheme = "dark"
+        oppositeTheme = "default"
+    }
+    if (targetColorTheme == "dark"){
+        currentTheme = "default"
+        oppositeTheme = "dark"
+    }
+    currentElements = document.getElementsByClassName(`kroki-${currentTheme}`)
+    oppositeElements = document.getElementsByClassName(`kroki-${oppositeTheme}`)
+    for (var i = currentElements.length - 1; i >= 0; i--){
+        currentElements[i].style.display = "none";
+    }
+    for (var i = oppositeElements.length - 1; i >= 0; i--){
+        oppositeElements[i].style.display = "block";
+}
 }

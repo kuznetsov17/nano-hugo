@@ -1,12 +1,11 @@
 window.addEventListener("load", () => {
  // Retrieve all help sections
  
- const sections =  Array.from(document.querySelectorAll("h2, h3"));
+ const sections =  Array.from(document.querySelectorAll("h2"));
  const scrollHandler = entries =>
   entries.forEach(entry => {
    const section = entry.target;
    const sectionId = section.id
-//    console.log(sectionId)
    const sectionLink = document.querySelector(`a[href="#${sectionId}"]`);
 
    if (entry.intersectionRatio > 0) {
